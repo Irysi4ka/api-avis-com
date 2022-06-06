@@ -1,4 +1,4 @@
-package com.avis.api;
+package com.avis.tests.api;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class ApiAvisOAuth2Test {
+public class  ApiAvisOAuth2Test {
 
     String clientID = "d5f6b9af";
     String clientSecret = "e0f9c236d6347c386983df0a56008ad2";
