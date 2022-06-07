@@ -3,11 +3,12 @@ package com.avis.tests.api;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class  ApiAvisOAuth2Test {
+public class ApiAvisOAuth2Test {
 
     String clientID = "d5f6b9af";
     String clientSecret = "e0f9c236d6347c386983df0a56008ad2";
@@ -16,6 +17,7 @@ public class  ApiAvisOAuth2Test {
     String accessToken;
     String fullAccessToken;
 
+    @Ignore
     @Test(priority = 1)
     public void getAccessToken() {
         Response responseToken = given()
@@ -31,7 +33,7 @@ public class  ApiAvisOAuth2Test {
         Assert.assertEquals(responseToken.statusCode(), 200);
     }
 
-
+    @Ignore
     @Test(priority = 2, dependsOnMethods = "getAccessToken")
     public void getCarsAvis() {
 
@@ -51,6 +53,7 @@ public class  ApiAvisOAuth2Test {
         responseCar.prettyPrint();
     }
 
+    @Ignore
     @Test(priority = 3, dependsOnMethods = "getAccessToken")
     public void getCarsBudget() {
 

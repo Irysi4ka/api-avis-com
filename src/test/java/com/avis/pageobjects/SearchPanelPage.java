@@ -5,8 +5,6 @@ import com.avis.utils.LocationCars;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
-
 public class SearchPanelPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='col-lg-12 res-inputFldFst']//input[@id='PicLoc_value']")
@@ -51,7 +49,7 @@ public class SearchPanelPage extends BasePage {
 
     public SearchPanelPage fillPanelFinishLocation() {
         inputFinishLocation.clear();
-        inputFinishLocation.sendKeys(LocationCars.locationOne);
+        inputFinishLocation.sendKeys(LocationCars.locationTwo);
         inputDateTo.clear();
         inputDateTo.sendKeys(DateFromAndTo.dateTo);
         inputFinishTime.click();
@@ -59,14 +57,13 @@ public class SearchPanelPage extends BasePage {
         return this;
     }
 
-    public SearchPanelPage clickButtonSelectMyCar(){
+    public SearchPanelPage clickButtonSelectMyCar() {
         buttonSelectMyCar.click();
         return this;
     }
 
-    public SearchPanelPage clickButtonSelectThisLocation(){
+    public SearchPanelPage clickButtonSelectThisLocation() {
         buttonSelectThisLocation.click();
         return this;
     }
-
 }

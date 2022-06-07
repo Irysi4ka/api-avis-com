@@ -3,13 +3,15 @@ package com.avis.tests.ui;
 import com.avis.pageobjects.LoginPage;
 import com.avis.pageobjects.MainPage;
 import com.avis.utils.DefaultUser;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
-public class LoginTest extends AbstractTest{
+public class LoginTest extends AbstractTest {
     LoginPage loginPage;
     MainPage mainPage;
 
-    @Test
+    @Ignore
+    @Test(priority = 15)
     public void testLogin() throws InterruptedException {
         mainPage = new MainPage().openPage().clickButtonLogin();
 
