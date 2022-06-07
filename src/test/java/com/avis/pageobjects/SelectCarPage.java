@@ -1,7 +1,12 @@
 package com.avis.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SelectCarPage extends BasePage {
 
@@ -29,6 +34,8 @@ public class SelectCarPage extends BasePage {
     @FindBy(xpath = "//div[@class='list-item-right']//input[@id='ALIchk']")
     private WebElement buttonCheckBox;
 
+    WebElement dynamicElement;
+
     public String getTitleStartLocation() {
         return titleStartLocation.getText();
     }
@@ -45,14 +52,22 @@ public class SelectCarPage extends BasePage {
         return titleFinishDayAndTime.getText();
     }
 
-    public SelectCarPage clickButtonPayLater(){
+    public SelectCarPage clickButtonPayLater() {
         buttonPayLater.click();
         return this;
     }
 
-    public SelectCarPage chooseOptionAndClickButton(){
+    public SelectCarPage clickMenuProtectionsAndCoverages() {
         menuProtectionsAndCoverages.click();
+        return this;
+    }
+
+    public SelectCarPage clickButtonCheckBox() {
         buttonCheckBox.click();
+        return this;
+    }
+
+    public SelectCarPage clickButtonProceedToCheckout() {
         buttonProceedToCheckout.click();
         return this;
     }

@@ -17,6 +17,9 @@ public class LoginPage extends BasePage {
     @FindBy(id = "otp_submit")
     public WebElement buttonVerification;
 
+    @FindBy(xpath= "//ul[@class='nav nav-pills pull-right header-left hidden-xs hedresflow-auth']//a[@class='welcome-menu-trigger welcome']")
+    private WebElement titleName;
+
     public LoginPage typeUserNameAndPassword(String userName, String password) {
         inputUserName.clear();
         inputUserName.sendKeys(userName);
@@ -33,6 +36,10 @@ public class LoginPage extends BasePage {
     public LoginPage clickButtonVerification(){
         buttonVerification.click();
         return this;
+    }
+
+    public String getTitleName(){
+        return titleName.getText();
     }
 
 }

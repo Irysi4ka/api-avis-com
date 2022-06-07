@@ -3,7 +3,9 @@ package com.avis.tests.ui;
 import com.avis.pageobjects.MainPage;
 import com.avis.pageobjects.SearchPanelPage;
 import com.avis.pageobjects.SelectCarPage;
+import com.avis.pageobjects.YourInformationPage;
 import com.avis.utils.LocationCars;
+import com.avis.utils.UserInformationReserve;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,6 +13,7 @@ public class SearchCarTest extends AbstractTest {
     MainPage mainPage = new MainPage();
     SearchPanelPage searchPanelPage = new SearchPanelPage();
     SelectCarPage selectCarPage = new SelectCarPage();
+    YourInformationPage yourInformationPage = new YourInformationPage();
 
     @Test(priority = 4)
     public void testSearchCar() {
@@ -35,8 +38,19 @@ public class SearchCarTest extends AbstractTest {
     @Test(priority = 6)
     public void testChooseCarAndRentalOption() throws InterruptedException {
         selectCarPage.clickButtonPayLater();
-        selectCarPage.chooseOptionAndClickButton();
-        Thread.sleep(15000);
+        selectCarPage.clickMenuProtectionsAndCoverages();
+        selectCarPage.clickButtonCheckBox();
+        Thread.sleep(5000);
+        selectCarPage.clickButtonProceedToCheckout();
+    }
+
+    @Test(priority = 7)
+    public void testReserve() throws InterruptedException {
+        yourInformationPage.fillFormYourInformation(UserInformationReserve.FIRST_NAME,
+                UserInformationReserve.LAST_NAME,
+                UserInformationReserve.EMAIL,
+                UserInformationReserve.NUMBER_PHONE);
+        Thread.sleep(5000);
     }
 
 }

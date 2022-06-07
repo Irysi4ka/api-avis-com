@@ -2,8 +2,9 @@ package com.avis.tests.api;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -16,9 +17,9 @@ public class ApiAvisOAuth2Test {
     String carsLocationURL = "https://stage.abgapiservices.com/cars/locations/v1";
     String accessToken;
     String fullAccessToken;
+    public static final Logger logger = LogManager.getLogger();
 
-    @Ignore
-    @Test(priority = 1)
+    @Test(priority = 8)
     public void getAccessToken() {
         Response responseToken = given()
                 .auth().preemptive()
@@ -26,6 +27,7 @@ public class ApiAvisOAuth2Test {
                 .post(tokenURL);
 
         responseToken.prettyPrint();
+        logger.info(responseToken.prettyPrint());
         System.out.println("Status is: " + responseToken.statusCode());
         accessToken = responseToken.getBody().path("access_token");
         fullAccessToken = "Bearer " + accessToken;
@@ -33,8 +35,7 @@ public class ApiAvisOAuth2Test {
         Assert.assertEquals(responseToken.statusCode(), 200);
     }
 
-    @Ignore
-    @Test(priority = 2, dependsOnMethods = "getAccessToken")
+    @Test(priority = 9, dependsOnMethods = "getAccessToken")
     public void getCarsAvis() {
 
         Response responseCar = given()
@@ -50,11 +51,11 @@ public class ApiAvisOAuth2Test {
 
         System.out.println("Status code is " + responseCar.statusCode());
         Assert.assertEquals(responseCar.statusCode(), 200);
+        logger.info(responseCar.prettyPrint());
         responseCar.prettyPrint();
     }
 
-    @Ignore
-    @Test(priority = 3, dependsOnMethods = "getAccessToken")
+    @Test(priority = 10, dependsOnMethods = "getAccessToken")
     public void getCarsBudget() {
 
         Response responseCar = given()
@@ -70,6 +71,7 @@ public class ApiAvisOAuth2Test {
 
         System.out.println("Status code is " + responseCar.statusCode());
         Assert.assertEquals(responseCar.statusCode(), 200);
+        logger.info(responseCar.prettyPrint());
         responseCar.prettyPrint();
     }
 
