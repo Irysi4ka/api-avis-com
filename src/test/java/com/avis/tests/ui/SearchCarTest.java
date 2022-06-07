@@ -15,7 +15,7 @@ public class SearchCarTest extends AbstractTest {
     SelectCarPage selectCarPage = new SelectCarPage();
     YourInformationPage yourInformationPage = new YourInformationPage();
 
-    @Test(priority = 4)
+    @Test(priority = 1)
     public void testSearchCar() {
         mainPage.openPage();
         searchPanelPage
@@ -24,7 +24,7 @@ public class SearchCarTest extends AbstractTest {
                 .clickButtonSelectMyCar();
     }
 
-    @Test(priority = 5)
+    @Test(priority = 2)
     public void testPickUpAndReturn() {
         System.out.println("Pick-Up: \n" + selectCarPage.getTitleStartLocation() + "\n" + selectCarPage.getTitleStartDayAndTime());
         Assert.assertEquals(selectCarPage.getTitleStartLocation(), LocationCars.locationStart);
@@ -35,7 +35,7 @@ public class SearchCarTest extends AbstractTest {
         Assert.assertEquals(selectCarPage.getTitleFinishDayAndTime(), LocationCars.dayFinish);
     }
 
-    @Test(priority = 6)
+    @Test(priority = 3)
     public void testChooseCarAndRentalOption() throws InterruptedException {
         selectCarPage.clickButtonPayLater();
         selectCarPage.clickMenuProtectionsAndCoverages();
@@ -44,7 +44,7 @@ public class SearchCarTest extends AbstractTest {
         selectCarPage.clickButtonProceedToCheckout();
     }
 
-    @Test(priority = 7)
+    @Test(priority = 4)
     public void testReserve() throws InterruptedException {
         yourInformationPage.fillFormYourInformation(UserInformationReserve.FIRST_NAME,
                 UserInformationReserve.LAST_NAME,

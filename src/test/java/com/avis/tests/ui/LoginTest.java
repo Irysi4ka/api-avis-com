@@ -4,14 +4,15 @@ import com.avis.pageobjects.LoginPage;
 import com.avis.pageobjects.MainPage;
 import com.avis.utils.DefaultUser;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class LoginTest extends AbstractTest {
     LoginPage loginPage;
     MainPage mainPage;
 
-
-    @Test(priority = 11)
+    @Ignore
+    @Test(priority = 8)
     public void testLogin() throws InterruptedException {
         mainPage = new MainPage().openPage().clickButtonLogin();
 

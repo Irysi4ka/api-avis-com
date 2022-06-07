@@ -19,7 +19,7 @@ public class ApiAvisOAuth2Test {
     String fullAccessToken;
     public static final Logger logger = LogManager.getLogger();
 
-    @Test(priority = 8)
+    @Test(priority = 5)
     public void getAccessToken() {
         Response responseToken = given()
                 .auth().preemptive()
@@ -35,7 +35,7 @@ public class ApiAvisOAuth2Test {
         Assert.assertEquals(responseToken.statusCode(), 200);
     }
 
-    @Test(priority = 9, dependsOnMethods = "getAccessToken")
+    @Test(priority = 6, dependsOnMethods = "getAccessToken")
     public void getCarsAvis() {
 
         Response responseCar = given()
@@ -55,7 +55,7 @@ public class ApiAvisOAuth2Test {
         responseCar.prettyPrint();
     }
 
-    @Test(priority = 10, dependsOnMethods = "getAccessToken")
+    @Test(priority = 7, dependsOnMethods = "getAccessToken")
     public void getCarsBudget() {
 
         Response responseCar = given()
